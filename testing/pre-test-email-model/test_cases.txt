@@ -1,0 +1,43 @@
+
+
+# Email Model Pre-Testing Results
+
+**Date:** July 2026
+
+## Objective
+
+The purpose of this pre-test was to evaluate the performance of the trained email spam detection model before integrating it into the ScamLens Streamlit application. The model was tested using a small set of manually created spam and legitimate (HAM) emails to verify that it could correctly distinguish between malicious and genuine email content.
+
+## Test Results
+
+| Email Type | Total Tested | Correct Predictions | Incorrect Predictions | Accuracy |
+|------------|-------------:|--------------------:|----------------------:|---------:|
+| Spam Emails | 5 | 5 | 0 | 100% |
+| HAM Emails | 5 | 4 | 1 | 80% |
+
+## Findings
+
+The email detection model successfully identified all spam emails during testing, achieving a **100% detection rate** for the phishing samples. This indicates that the model effectively recognises common spam characteristics such as urgency, suspicious requests, and phishing-related language.
+
+However, the model incorrectly classified **1 out of 5 legitimate emails** as spam. This false positive suggests that while the model is highly effective at detecting malicious emails, further optimisation is required to improve the recognition of genuine communications.
+
+## Observations
+
+- All spam emails were detected successfully.
+- Four legitimate emails were classified correctly.
+- One legitimate email was incorrectly predicted as spam (false positive).
+- The model demonstrates strong spam detection performance but requires further refinement to reduce false positive predictions.
+
+## Planned Improvements
+
+The following improvements have been identified during this testing phase:
+
+- Expand the training dataset with additional legitimate email samples.
+- Investigate the characteristics of the misclassified HAM email.
+- Evaluate prediction confidence using probability scores.
+- Continue testing after integrating the model into the ScamLens interface.
+- Compare future model performance with the current baseline.
+
+## Conclusion
+
+The initial pre-testing demonstrates that the email detection model performs well in identifying spam emails but requires further refinement to improve the classification of legitimate emails. Following the Agile development methodology, these findings will be incorporated into the next development iteration to improve the overall reliability and usability of ScamLens.
