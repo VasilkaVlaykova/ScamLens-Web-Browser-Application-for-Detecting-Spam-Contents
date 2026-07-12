@@ -55,9 +55,9 @@ def chart(value, label):
             'axis':{'range':[0,100]},
             'bar':{'color': 'red' if label == 'Spam Probability' else 'green'},
             'steps':[
-                {'range': [0,50], 'color': '#9abc05'},
-                {'range': [50,75], 'color': '#ffc926'},
-                {'range': [75,100], 'color':'#d52518'}
+                {'range': [0,50], 'color': '#2E8B57'},
+                {'range': [50,75], 'color': '#F4C542'},
+                {'range': [75,100], 'color':'#D62828'}
             ]
         }
     ))
@@ -80,7 +80,7 @@ with tab1:
                #st.warning('Please enter or copy an SMS message')
                st.markdown(
     """
-    <div style='background-color: #3c7027; color: white; padding: 1rem; border-radius: 0.5rem; font-size: 0.85rem; margin-bottom: 0.5rem;'>
+    <div style='background-color: #fbc02d; color: black; padding: 1rem; border-radius: 0.5rem; font-size: 0.85rem; margin-bottom: 0.5rem;'>
     ⚠️ Please enter or copy an SMS message.
     </div>
     """,

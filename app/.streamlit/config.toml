@@ -1,13 +1,13 @@
 
 
 [theme]
-backgroundColor = '#375534'
+backgroundColor = 'rgb(68, 104, 65)'
 
 
 secondaryBackgroundColor = '#0f2a1d'
 
 textColor = '#ffffff'
-primaryColor = '#4dd723'
+primaryColor = '#08baba'
 theme.borderColor= 'hsl(115, 90%, 51%)'
 
 
