@@ -1,0 +1,13 @@
+
+
+[theme]
+backgroundColor = '#375534'
+
+
+secondaryBackgroundColor = '#0f2a1d'
+
+textColor = '#ffffff'
+primaryColor = '#4dd723'
+theme.borderColor= 'hsl(115, 90%, 51%)'
+
+

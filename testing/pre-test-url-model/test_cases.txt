@@ -1,0 +1,43 @@
+
+
+# URL Model Pre-Testing Results
+
+**Date:** July 2026
+
+## Objective
+
+The purpose of this pre-test was to evaluate the performance of the trained URL spam detection model before integrating it into the ScamLens Streamlit application. The model was tested using a small set of manually selected spam and legitimate (HAM) URLs to verify that it could correctly distinguish between malicious and safe websites.
+
+## Test Results
+
+| URL Type | Total Tested | Correct Predictions | Incorrect Predictions | Accuracy |
+|----------|-------------:|--------------------:|----------------------:|---------:|
+| Spam URLs | 4 | 4 | 0 | 100% |
+| HAM URLs | 5 | 3 | 2 | 60% |
+
+## Findings
+
+The URL detection model successfully identified all phishing URLs during testing, achieving a **100% detection rate** for the spam samples. This demonstrates that the model is capable of recognising common malicious URL characteristics learned during training.
+
+However, the model incorrectly classified **2 out of 5 legitimate URLs** as spam. These false positives indicate that although the model is effective at detecting malicious links, it is currently more sensitive than desired and may incorrectly warn users about safe websites.
+
+## Observations
+
+- All phishing URLs were detected successfully.
+- Three legitimate URLs were classified correctly.
+- Two legitimate URLs were incorrectly predicted as spam (false positives).
+- The model shows strong capability for spam detection but requires further improvement to reduce false positive predictions.
+
+## Planned Improvements
+
+The following improvements have been identified during this testing phase:
+
+- Expand the training dataset with additional legitimate URLs.
+- Investigate the characteristics of the misclassified HAM URLs.
+- Evaluate prediction confidence using probability scores.
+- Continue testing after integrating the model into the ScamLens interface.
+- Compare future model performance with the current baseline.
+
+## Conclusion
+
+The initial pre-testing demonstrates that the URL detection model performs well in identifying malicious URLs but requires further refinement to improve the classification of legitimate websites. Following the Agile development methodology, these findings will be incorporated into the next development iteration to improve the overall reliability and usability of ScamLens.

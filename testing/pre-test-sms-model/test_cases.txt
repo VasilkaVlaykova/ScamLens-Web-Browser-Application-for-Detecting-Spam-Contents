@@ -1,0 +1,40 @@
+# SMS Model Pre-Testing Results
+
+## Observation
+
+During pre-testing, the SMS model classified several phishing-style SMS messages as Ham, even though the messages contained spam indicators such as parcel delivery pressure, unpaid fees, urgency, payment requests, and suspicious URLs.
+
+## Examples
+
+Input SMS:
+UPS: Your parcel delivery has been placed on hold due to an unpaid £1.75 customs fee. Complete payment within 24 hours to avoid returning your parcel:
+http://parcel-check-example.test
+
+Amazon Prime: Your membership has been renewed for £89.99. If this was not you, cancel immediately:
+http://prime‑cancel‑secure.com
+
+UK Gov: You qualify for a £350 energy support refund. Submit your details before midnight to receive payment:
+http://gov‑energy‑claim.uk
+
+UPS: Your parcel is on hold due to an unpaid £1.75 service fee. Complete payment to release delivery:
+http://ups‑parcel‑verify.net
+
+Barclays: Your recent payment of £429.99 has been flagged as suspicious. Confirm your identity to avoid account freeze:
+http://barclays‑secure‑check.co
+
+Expected Result:
+Spam
+
+Actual Result:
+Ham
+
+Status:
+Fail
+
+## Interpretation
+
+The SMS model may be limited because the SMS dataset is relatively small and may not contain enough modern phishing examples, especially delivery scams and URL-based attacks.
+
+## Next Improvement
+
+The next testing phase will combine the SMS model with the URL model. If the SMS model predicts Ham but a suspicious URL is detected, the final system output should change to Suspicious or Spam.
