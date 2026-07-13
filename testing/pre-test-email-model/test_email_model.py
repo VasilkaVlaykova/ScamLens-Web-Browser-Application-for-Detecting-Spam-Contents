@@ -2,6 +2,14 @@ import streamlit as st
 import joblib
 import plotly.graph_objects as go 
 import re
+import unicodedata
+from confusable_homoglyphs import confusables
+
+
+
+
+
+
 
 
 email_model = joblib.load('models/email_svm_model.pkl')
@@ -59,14 +67,31 @@ with tab1:
 
             
             
-            
+         
+
             urls = re.findall(r'(https?://[^\s]+|www\.[^\s]+)', sms_text)
 
+        
             if urls:
                 st.subheader("URL Analysis")
+
+                
                 for url in urls:
+                    
+
                     url_vector = url_vectorizer.transform([url])
                     url_prediction = url_model.predict(url_vector)[0]
+
+                
+
+                    
+
+                    for url in urls:
+                      st.write(f"DEBUG raw url: {repr(url)}")   # shows exact characters, including invisible ones
+                      security = analyze_hidden_things(url)
+                      st.write(f"DEBUG result: {security}")
+
+
                     url_probability = url_model.predict_proba(url_vector)[0]
 
                     ham_url_probability = url_probability[0] * 100
