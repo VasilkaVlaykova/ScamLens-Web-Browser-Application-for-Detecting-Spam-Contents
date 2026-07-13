@@ -11,7 +11,7 @@ import re
 
 
 
-# Using markdown and css to hide the deploy menu of the interface
+# Using markdown and CSS to hide the deploy menu of the interface.
 st.markdown("""
 <style>
 [data-testid="stToolbar"] {
@@ -47,11 +47,11 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# Colling email SVM model, email SVM TF-IDF vectorizer model.
+# Calling email SVM model, email SVM TF-IDF vectorizer model.
 # Because the SMS model could not capture and classify the text, 
 # in application will be applay only the email model.
 
-# Colling url SVM model and url TF-IDF vectorizer.
+# Calling url SVM model and url TF-IDF vectorizer.
 
 email_model = joblib.load('models/email_svm_model.pkl')
 email_vectoriser = joblib.load('models/email_tfidf.pkl')
@@ -164,7 +164,7 @@ with tab1:
                        "behind buttons or words. Do **NOT** click anywhere in the original SMS."
                        )
 
-
+# For development of Tab 2 Email section is used the same code , only the name of the text box and model SVM and model TF-IDF are changed.
 with tab2:
     st.subheader('Email')
     with st.form(key='email_form', clear_on_submit=True):
@@ -230,7 +230,7 @@ with tab2:
                        "behind buttons or words. Do **NOT** click anywhere in the original email."
                        )
                     
-
+# For tab3 the URL section was used the same code only was removed the email model and TF-IDF model representation of the code.
 with tab3:
     st.subheader('URL link')
     with st.form(key='url_form', clear_on_submit=True):
