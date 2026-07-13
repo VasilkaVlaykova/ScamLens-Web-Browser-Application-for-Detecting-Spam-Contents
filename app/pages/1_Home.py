@@ -6,6 +6,11 @@ import joblib
 import plotly.graph_objects as go 
 import re
 
+
+
+
+
+
 # Using markdown and css to hide the deploy menu of the interface
 st.markdown("""
 <style>
@@ -141,6 +146,7 @@ with tab1:
                         spam_url_probability = url_probability[1] * 100
 
                         st.write(f"URL: {url}")
+                        
                         if url_prediction == 1:
                           st.write("Prediction: **Spam**")
                           st.write(f"Spam probability: **{spam_url_probability:.2f}%**")
@@ -252,8 +258,10 @@ with tab3:
                 ham_url_probability = url_probability[0]*100
                 spam_url_probability = url_probability[1]*100
 
-                st.write(f"URL: {urls}")
+                
                 st.header(' URL link Analysis')
+                st.write(f"URL: {urls}")
+                
 
                 if url_prediction == 1:
                    st.write('Prediction: Spam')
