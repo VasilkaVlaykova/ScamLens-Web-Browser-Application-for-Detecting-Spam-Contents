@@ -5,6 +5,7 @@ import streamlit as st
 import joblib
 import plotly.graph_objects as go 
 import re
+import unicodedata
 
 
 
@@ -131,7 +132,8 @@ with tab1:
 
                # Using Regular Expression to extract the link characteristics.
                urls = re.findall(r'(https?://[^\s]+|www\.[^\s]+)', sms_text)
-                
+
+            
                 # Using FOR IN Loop to add the URL model and URL TF-IDF vectorizer model,
                 # to find chrck if the text content has url, and if is TRUE to extract this URL.
                 # The system combined and both trained  model Email and URL in on place to handle if the text has any link inside.
@@ -146,6 +148,37 @@ with tab1:
                         spam_url_probability = url_probability[1] * 100
 
                         st.write(f"URL: {url}")
+
+                        mix_char = r"[\u0370-\u03FF\u0400-\u04FF\u0530-\u058F]"
+                        zero_width = r"[\u200B\u200C\u200D\u2060]"
+                        hidden = re.findall(mix_char,url)
+                        zero = re.findall(zero_width, url)
+                        if hidden:
+                           st.warning('⚠️ The link has mixed alphabet characters:')
+                           for i in hidden:
+                                 
+                                 name = unicodedata.name(i)          
+                                 script = name.split()[0].capitalize() 
+                                 st.write(f"{i} → {hex(ord(i))}→ {script} alphabet")
+                              
+                        else:
+                              st.write('The link does not have any hidden mixed alphabets letter')
+                        if zero:
+                              st.warning('⚠️ Hidden zero-width characters found:')
+                              for j in zero:
+                                st.write(f"- `{j}` → `{hex(ord(j))}`")
+                        else:
+                            st.write(' The link does not have any hidden numbers')
+
+
+
+
+
+
+
+
+
+
                         
                         if url_prediction == 1:
                           st.write("Prediction: **Spam**")
