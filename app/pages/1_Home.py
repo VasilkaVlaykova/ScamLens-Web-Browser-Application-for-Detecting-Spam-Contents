@@ -3,11 +3,9 @@
 
 import streamlit as st
 import joblib
-import plotly.graph_objects as go 
+#import plotly.graph_objects as go 
 import re
 import unicodedata
-
-
 
 
 
@@ -32,6 +30,14 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
+
+
+
+
+             
+
+
+
 # Creating title  and short introduction of the app.
 st.title('Welcome to ScamLens ',text_alignment='center' )
 st.write('A detection platform designed to analyse text messages, emails, and URLs for potential threats. ' \
@@ -48,16 +54,64 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# Calling email SVM model, email SVM TF-IDF vectorizer model.
-# Because the SMS model could not capture and classify the text, 
-# in application will be applay only the email model.
 
-# Calling url SVM model and url TF-IDF vectorizer.
+@st.cache_resource
+def load_models():
+    """
+    Loads all SVM models and TF-IDF vectorisers once and caches them
+    in memory. Streamlit reruns the whole script on every interaction,
+    so without this decorator these 4 files would be re-read from disk
+    on every single button click.
+    """
+    email_model = joblib.load('models/email_svm_model.pkl')
+    email_vectoriser = joblib.load('models/email_tfidf.pkl')
+    url_model = joblib.load('models/url_svm_model.pkl')
+    url_vectorizer = joblib.load('models/url_tfidf.pkl')
+    return email_model, email_vectoriser, url_model, url_vectorizer
 
-email_model = joblib.load('models/email_svm_model.pkl')
-email_vectoriser = joblib.load('models/email_tfidf.pkl')
-url_model = joblib.load('models/url_svm_model.pkl')
-url_vectorizer = joblib.load('models/url_tfidf.pkl')
+# Call it once — cheap after the first run, since Streamlit returns
+# the cached objects instantly on every rerun.
+email_model, email_vectoriser, url_model, url_vectorizer = load_models()
+
+
+
+
+
+def predict_and_display(model, vectorizer, text, spam_label='Spam', ham_label='Legitimate', show_chart=False):
+    """
+    Runs a text through the given model + vectoriser, displays the
+    prediction and probability, and optionally shows the plotly gauge chart.
+    Used for both SMS/email and URL analysis to avoid repeating the same
+    predict -> probability -> display logic twice.
+    """
+    vector = vectorizer.transform([text])
+    prediction = model.predict(vector)[0]
+    probability = model.predict_proba(vector)[0]
+
+    ham_probability = probability[0] * 100
+    spam_probability = probability[1] * 100
+
+    if prediction == 1:
+        st.write(f"Prediction: **{spam_label}**")
+        st.write(f"Spam probability: **{spam_probability:.2f}%**")
+        if show_chart:
+            st.plotly_chart(chart(spam_probability, 'Spam Probability'))
+    else:
+        st.write(f"Prediction: **{ham_label}**")
+        st.write(f"Ham probability: **{ham_probability:.2f}%**")
+        if show_chart:
+             st.plotly_chart(chart(ham_probability, 'Ham Probability'))
+             
+    return prediction, spam_probability, ham_probability    
+
+
+
+
+
+
+
+
+
 
 
 #Creating 3 tabs SMS, Email, URL, user to has a option to choose what type of service he wants to use.
@@ -66,6 +120,9 @@ tab1, tab2, tab3 = st.tabs(['SMS', 'Email','URL'])
 
 # Creating a function to apply the plotly chart Indicator into tabs SMS, Email, and URL.
 def chart(value, label):
+    import plotly.graph_objects as go
+
+
     fig = go.Figure(go.Indicator(
         mode='gauge+number',
         value = value,
@@ -104,18 +161,14 @@ with tab1:
     """,
     unsafe_allow_html=True
 )
-               #The ELSE block represent that TF-IDF vectorizer takes the raw text and passes intto trained TF-IDF email model.
-               # after that the result is converted into vectors and passes into email model to define if the content is Spam or Ham.
-               # With email_predict_proba instead of simple YES or No , it returns probability score to the user.
+               
         else:
-               sms_vector = email_vectoriser.transform([sms_text])
-               sms_prediction = email_model.predict(sms_vector)[0]
-               sms_probability = email_model.predict_proba(sms_vector)[0]
-
-               ham_sms_probability = sms_probability[0]*100
-               spam_sms_probability = sms_probability[1]*100
 
                st.header('SMS Analysis')
+               sms_prediction, spam_sms_probability, ham_sms_probability = predict_and_display(
+               email_model, email_vectoriser, sms_text,
+               spam_label='Spam', ham_label='Legitimate', show_chart=True
+               )
 
                
                # Applying IF condition to specify that if the content is Spam to provide to the user probability score and applying the function ,
@@ -124,36 +177,31 @@ with tab1:
                if sms_prediction == 1:
                     st.write('Prediction: Spam')
                     st.write(f"Spam probability: **{spam_sms_probability:.2f}%**")
-                    st.plotly_chart(chart(spam_sms_probability, 'Spam Probability'))
+                  
                else:
                     st.write('Prediction: Legitimate')
                     st.write(f"Ham probability: **{ham_sms_probability:.2f}%**")
-                    st.plotly_chart(chart(ham_sms_probability, 'Ham Probability'))
-
+                    
                # Using Regular Expression to extract the link characteristics.
                urls = re.findall(r'(https?://[^\s]+|www\.[^\s]+)', sms_text)
 
             
-                # Using FOR IN Loop to add the URL model and URL TF-IDF vectorizer model,
-                # to find chrck if the text content has url, and if is TRUE to extract this URL.
-                # The system combined and both trained  model Email and URL in on place to handle if the text has any link inside.
+                
                if urls:
                      st.subheader("URL Analysis")
                      for url in urls:
-                        url_vector = url_vectorizer.transform([url])
-                        url_prediction = url_model.predict(url_vector)[0]
-                        url_probability = url_model.predict_proba(url_vector)[0]
+                      url_prediction, spam_url_probability, ham_url_probability = predict_and_display(
+                      url_model, url_vectorizer, url,
+                      spam_label='Spam', ham_label='Legitimate URL', show_chart=False
+                      )
 
-                        ham_url_probability = url_probability[0] * 100
-                        spam_url_probability = url_probability[1] * 100
+                     st.write(f"URL: {url}")
 
-                        st.write(f"URL: {url}")
-
-                        mix_char = r"[\u0370-\u03FF\u0400-\u04FF\u0530-\u058F]"
-                        zero_width = r"[\u200B\u200C\u200D\u2060]"
-                        hidden = re.findall(mix_char,url)
-                        zero = re.findall(zero_width, url)
-                        if hidden:
+                     mix_char = r"[\u0370-\u03FF\u0400-\u04FF\u0530-\u058F]"
+                     zero_width = r"[\u200B\u200C\u200D\u2060]"
+                     hidden = re.findall(mix_char,url)
+                     zero = re.findall(zero_width, url)
+                     if hidden:
                            st.warning('⚠️ The link has mixed alphabet characters:')
                            for i in hidden:
                                  
@@ -161,31 +209,16 @@ with tab1:
                                  script = name.split()[0].capitalize() 
                                  st.write(f"{i} → {hex(ord(i))}→ {script} alphabet")
                               
-                        else:
-                              st.write('The link does not have any hidden mixed alphabets letter')
-                        if zero:
+                     else:
+                              st.info('The link does not have any hidden mixed alphabets letter')
+                     if zero:
                               st.warning('⚠️ Hidden zero-width characters found:')
                               for j in zero:
                                 st.write(f"- `{j}` → `{hex(ord(j))}`")
-                        else:
-                            st.write(' The link does not have any hidden numbers')
+                                
 
-
-
-
-
-
-
-
-
-
-                        
-                        if url_prediction == 1:
-                          st.write("Prediction: **Spam**")
-                          st.write(f"Spam probability: **{spam_url_probability:.2f}%**")
-                        else:
-                          st.write("Prediction: **Legitimate URL**")
-                          st.write(f"Ham probability: **{ham_url_probability:.2f}%**")
+                     else:
+                            st.info(' The link does not have any hidden numbers')
                
                # If the text is classified as Spam the ELSE condition will provide a warning ,essage to the user
                # about that probably the text contains a hiddin link and do not click anywhere inside.
@@ -201,7 +234,7 @@ with tab1:
 with tab2:
     st.subheader('Email')
     with st.form(key='email_form', clear_on_submit=True):
-        email_text = st.text_area('Please enter or paste an SMS message')
+        email_text = st.text_area('Please enter or paste an Email message')
     
         analyse_Sbt = st.form_submit_button('Analyse Email', type='primary')
 
@@ -216,44 +249,56 @@ with tab2:
         )
             
         else:
-
-            email_vector = email_vectoriser.transform([email_text])
-            email_prediction = email_model.predict(email_vector)[0]
-            email_probability = email_model.predict_proba(email_vector)[0]
-
-            ham_email_probability = email_probability[0]*100
-            spam_email_probability = email_probability[1]*100
-
             st.header('Email Analysis')
+            email_prediction, spam_email_probability, ham_email_probability = predict_and_display(
+               email_model, email_vectoriser, email_text,
+               spam_label='Spam', ham_label='Legitimate', show_chart=True
+               )
 
             if email_prediction == 1:
                 st.write('Prediction: Spam')
                 st.write(f"Spam probability: **{spam_email_probability:.2f}%**")
-                st.plotly_chart(chart(spam_email_probability, 'Spam Probability'))
+                #st.plotly_chart(chart(spam_email_probability, 'Spam Probability'))
             else:
                 st.write('Prediction: Legitimate')
                 st.write(f"Ham probability: **{ham_email_probability:.2f}%**")
-                st.plotly_chart(chart(ham_email_probability, 'Ham Probability'))
+                #st.plotly_chart(chart(ham_email_probability, 'Ham Probability'))
 
             urls = re.findall(r'(https?://[^\s]+|www\.[^\s]+)', email_text)
 
             if urls:
                 st.subheader("URL Analysis")
                 for url in urls:
-                    url_vector = url_vectorizer.transform([url])
-                    url_prediction = url_model.predict(url_vector)[0]
-                    url_probability = url_model.predict_proba(url_vector)[0]
-
-                    ham_url_probability = url_probability[0] * 100
-                    spam_url_probability = url_probability[1] * 100
+                    
+                    url_prediction, spam_url_probability, ham_url_probability = predict_and_display(
+                    url_model, url_vectorizer, url,
+                    spam_label='Spam', ham_label='Legitimate URL', show_chart=False
+                    )
 
                     st.write(f"URL: {url}")
-                    if url_prediction == 1:
-                        st.write("Prediction: **Spam**")
-                        st.write(f"Spam probability: **{spam_url_probability:.2f}%**")
+                    mix_char = r"[\u0370-\u03FF\u0400-\u04FF\u0530-\u058F]"
+                    zero_width = r"[\u200B\u200C\u200D\u2060]"
+                    hidden = re.findall(mix_char,url)
+                    zero = re.findall(zero_width, url)
+                    if hidden:
+                           st.warning('⚠️ The link has mixed alphabet characters:')
+                           for i in hidden:
+                                 
+                                 name = unicodedata.name(i)          
+                                 script = name.split()[0].capitalize() 
+                                 st.write(f"{i} → {hex(ord(i))}→ {script} alphabet")
+                              
                     else:
-                        st.write("Prediction: **Legitimate URL**")
-                        st.write(f"Ham probability: **{ham_url_probability:.2f}%**")
+                              st.info('The link does not have any hidden mixed alphabets letter')
+                    if zero:
+                              st.warning('⚠️ Hidden zero-width characters found:')
+                              for j in zero:
+                                st.write(f"- `{j}` → `{hex(ord(j))}`")
+                                
+
+                    else:
+                            st.info(' The link does not have any hidden numbers')
+
 
             else:
                 st.info("No URLs found in this Email.")
@@ -275,7 +320,7 @@ with tab3:
             st.markdown(
     """
     <div style='background-color: #fbc02d; color: black; padding: 1rem; border-radius: 0.5rem; font-size: 0.85rem; margin-bottom: 0.5rem;'>
-    ⚠️ Please enter or paste an SMS message.
+    ⚠️ Please enter or paste an URL link.
     </div>
     """,
     unsafe_allow_html=True
@@ -284,26 +329,47 @@ with tab3:
             urls = re.findall(r'(https?://[^\s]+|www\.[^\s]+)', url_text)
 
             if urls:
-                url_vector = url_vectorizer.transform([url_text])
-                url_prediction = url_model.predict(url_vector)[0]
-                url_probability = url_model.predict_proba(url_vector)[0]
-
-                ham_url_probability = url_probability[0]*100
-                spam_url_probability = url_probability[1]*100
+                 for url in url:
 
                 
-                st.header(' URL link Analysis')
-                st.write(f"URL: {urls}")
-                
+                  st.header(' URL link Analysis')
+                  url_prediction, spam_url_probability, ham_url_probability = predict_and_display(
+                      url_model, url_vectorizer, url,
+                      spam_label='Spam', ham_label='Legitimate URL', show_chart=True
+                      )
+                  st.write(f"URL: {urls}")
+                  mix_char = r"[\u0370-\u03FF\u0400-\u04FF\u0530-\u058F]"
+                  zero_width = r"[\u200B\u200C\u200D\u2060]"
+                  hidden = re.findall(mix_char,url)
+                  zero = re.findall(zero_width, url)
+                 if hidden:
+                    st.warning('⚠️ The link has mixed alphabet characters:')
+                    for i in hidden:
+                                 
+                        name = unicodedata.name(i)          
+                        script = name.split()[0].capitalize() 
+                        st.write(f"{i} → {hex(ord(i))}→ {script} alphabet")
+                              
+                 else:
+                    st.info('The link does not have any hidden mixed alphabets letter')
+                 if zero:
+                    st.warning('⚠️ Hidden zero-width characters found:')
+                    for j in zero:
+                        st.write(f"- `{j}` → `{hex(ord(j))}`")
+                                
 
-                if url_prediction == 1:
-                   st.write('Prediction: Spam')
-                   st.write(f"Spam probability: **{spam_url_probability:.2f}%**")
-                   st.plotly_chart(chart(spam_url_probability, 'Spam Probability'))
-                else:
-                   st.write('Prediction: Legitimate')
-                   st.write(f"Ham probability: **{ham_url_probability:.2f}%**")
-                   st.plotly_chart(chart(ham_url_probability, 'Ham Probability'))
+                 else:
+                            st.info(' The link does not have any hidden numbers')
+
+
+            else:
+                st.info("No URLs found in this Email.")
+                if sms_prediction == 1:
+                    st.warning(
+                       "⚠️ This Email appears to be **spam** and may contain **hidden malicious links** "
+                       "behind buttons or words. Do **NOT** click anywhere in the original email."
+                       )
+            
 
 
 
