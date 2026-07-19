@@ -2,8 +2,7 @@
 # Importing Python libraries
 
 import streamlit as st
-import joblib
-#import plotly.graph_objects as go 
+import joblib 
 import re
 import unicodedata
 
@@ -55,23 +54,22 @@ st.markdown(
 )
 
 
+
+
 @st.cache_resource
 def load_models():
-    """
-    Loads all SVM models and TF-IDF vectorisers once and caches them
-    in memory. Streamlit reruns the whole script on every interaction,
-    so without this decorator these 4 files would be re-read from disk
-    on every single button click.
-    """
     email_model = joblib.load('models/email_svm_model.pkl')
     email_vectoriser = joblib.load('models/email_tfidf.pkl')
     url_model = joblib.load('models/url_svm_model.pkl')
     url_vectorizer = joblib.load('models/url_tfidf.pkl')
     return email_model, email_vectoriser, url_model, url_vectorizer
 
-# Call it once — cheap after the first run, since Streamlit returns
-# the cached objects instantly on every rerun.
+
+
 email_model, email_vectoriser, url_model, url_vectorizer = load_models()
+
+
+
 
 
 
@@ -233,6 +231,8 @@ with tab1:
 # For development of Tab 2 Email section is used the same code , only the name of the text box and model SVM and model TF-IDF are changed.
 with tab2:
     st.subheader('Email')
+
+
     with st.form(key='email_form', clear_on_submit=True):
         email_text = st.text_area('Please enter or paste an Email message')
     
@@ -311,6 +311,7 @@ with tab2:
 # For tab3 the URL section was used the same code only was removed the email model and TF-IDF model representation of the code.
 with tab3:
     st.subheader('URL link')
+ 
     with st.form(key='url_form', clear_on_submit=True):
         url_text = st.text_area('Please enter or paste an URL link')
     
@@ -329,7 +330,7 @@ with tab3:
             urls = re.findall(r'(https?://[^\s]+|www\.[^\s]+)', url_text)
 
             if urls:
-                 for url in url:
+                 for url in urls:
 
                 
                   st.header(' URL link Analysis')
@@ -360,6 +361,7 @@ with tab3:
 
                  else:
                             st.info(' The link does not have any hidden numbers')
+                 
 
 
             else:
