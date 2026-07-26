@@ -10,5 +10,7 @@ textColor = '#ffffff'
 primaryColor = 'hsl(205, 66%, 65%)'
 theme.borderColor= 'hsl(115, 90%, 51%)'
 
+font = "sans serif"
+baseFontSize = 20
 
 #0acfcf'

@@ -38,12 +38,12 @@ or website link might be a scam. It is designed for everyday users and does not 
 
 st.subheader('What ScamLens Can Detect', text_alignment='center')
 st.markdown("""
-<div style='text-align:left; font-size:20px;'>
+<div style='text-align:left; font-size:20px;background-color:#204635;padding: 24px; border-radius: 12px;'>
     <ul>
-        <li>Suspicious or scam text messages</li>
-        <li>Phishing emails</li>
-        <li>Malicious or unsafe website links</li>
-        <li>Hidden characters or mixed alphabets inside URLs</li>
+        <li><span style="color:#F4C542; margin-right:8px;">☎</span> Suspicious or scam text messages</li>
+        <li><span style="color:#F4C542; margin-right:8px;">✉</span> Phishing emails</li>
+        <li><span style="color:#F4C542; margin-right:8px;">⛓</span> Malicious or unsafe website links</li>
+        <li><span style="color:#F4C542; margin-right:8px;">⚠</span> Hidden characters or mixed alphabets inside URLs</li>
     </ul>
 </div>
 """, unsafe_allow_html=True)
@@ -66,23 +66,23 @@ This score may not always be correct — always double check the original messag
 
 st.subheader("Your Privacy Matters",text_alignment='center')
 st.markdown("""
-<div style='text-align:left; padding-bottom: 30px;font-size:20px;'>
+<div style='text-align:left; padding-bottom: 30px;font-size:20px;background-color:#204635;padding: 24px; border-radius: 12px;'>
     <ul>
-        <li>ScamLens does not store your messages, emails, or links</li>
-        <li>No personal data is saved or shared</li>
-        <li>No installation or download is required</li>
-        <li>ScamLens is completely free to use</li>
+        <li> <span style="color:#F4C542;margin-right:8px;">✓</span> ScamLens does not store your messages, emails, or links</li>
+        <li> <span style="color:#F4C542;margin-right:8px;">✓</span> No personal data is saved or shared</li>
+        <li> <span style="color:#F4C542;margin-right:8px;">✓</span> No installation or download is required</li>
+        <li> <span style="color:#F4C542;margin-right:8px;">✓</span> ScamLens is completely free to use</li>
     </ul>
 </div>
 """, unsafe_allow_html=True)
 
 st.subheader("Coming Soon", text_alignment='center')
 st.markdown("""
-<div style='text-align:left; padding-bottom: 30px;font-size:20px;'>
+<div style='text-align:left; padding-bottom: 30px;font-size:20px;background-color:#204635;padding: 24px; border-radius: 12px;'>
     <ul>
-        <li>Support for more languages</li>
-        <li>Improved scam detection accuracy</li>
-        <li>More visual tools to help you understand results</li>
+        <li><span style="color:#F4C542;">▸</span> Support for more languages</li>
+        <li><span style="color:#F4C542;">▸</span> Improved scam detection accuracy</li>
+        <li><span style="color:#F4C542;">▸</span> More visual tools to help you understand results</li>
     </ul>
 </div> 
 """, unsafe_allow_html=True)
@@ -92,6 +92,6 @@ st.subheader("Feedback & Support",text_alignment='center')
 st.markdown("""
 Have suggestions or found an issue?  
 You can share feedback on GitHub:  
-👉 https://github.com/VasilkaVlaykova
+▸ https://github.com/VasilkaVlaykova
 """)
 

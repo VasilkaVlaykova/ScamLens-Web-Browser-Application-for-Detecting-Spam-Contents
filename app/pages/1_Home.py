@@ -29,29 +29,44 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-
+st.markdown("""
+<style>
+/* Make the main content wider */
+.block-container {
+    max-width: 1200px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+</style>
+""", unsafe_allow_html=True)
 
 
 
              
 # Applying ScamLens image as title/
 
-tab1, tab2 = st.columns([1,4])
+tab1, tab2 = st.columns([8,20])
 
 
 with tab2:
-     st.image("app/title.png", width=370)
+     st.image("app/title.png", width=400)
 
 # Creating title  and short introduction of the app.
 #st.title('Welcome to ScamLens ',text_alignment='center' )
-st.write('A detection platform designed to analyse text messages, emails, and URLs for potential threats. ' \
-'Simply input your        data to scan for spam content and receive an instant ' \
-'                  probability score for the risk level')
+st.markdown("""
+<div style='text-ailgn:cener; font-size:20px;'>
+<p><b> A detection platform designed to analyse text messages, emails, and URLs for potential threats. 
+Simply input your data to scan for spam content and receive an instant probability score for the risk level
+</b>
+</p>
+</div>
+""",unsafe_allow_html=True)
+
 
 # Using HTML to create a custom warning box to provides to the user.
 st.markdown(
     """
-    <div style='background-color: #fdd835; color: black; padding: 1rem; border-radius: 0.5rem; font-size: 0.85rem; margin-bottom: 0.5rem;'>
+    <div style='background-color: #fdd835; color: black; padding: 1rem; border-radius: 0.5rem;font-size:18px;'>
     ⚠️ Please do not input any sensitive information such as name, address, phone number, or your personal email address. The platform will analyse your content without storing any data.
     </div>
     """,
@@ -99,7 +114,13 @@ def predict_and_display(pipeline, text, spam_label='Spam', ham_label='Legitimate
              
     return prediction, spam_probability, ham_probability    
 
-
+st.markdown("""
+<style>
+    button[data-baseweb="tab"] p {
+        font-size: 18px !important;
+    }
+</style>
+""", unsafe_allow_html=True)
 
 #Creating 3 tabs SMS, Email, URL, user to has a option to choose what type of service he wants to use.
 tab1, tab2, tab3 = st.tabs(['SMS', 'Email','URL'])
@@ -128,7 +149,7 @@ with tab1:
     st.subheader('SMS')
 
 # Using st.form to clean the text from the imput box, and reaedy to be use for another analysis of text.
-    with st.form(key='sms_form',clear_on_submit=True):
+    with st.form(key='sms_form',clear_on_submit=True,):
         sms_text = st.text_area('Please enter or paste an SMS message')
         analyse_Sbt = st.form_submit_button('Analyse SMS', type='primary')
 
@@ -137,7 +158,7 @@ with tab1:
                
                st.markdown(
                """
-               <div style='background-color: #fff59d; color: #333333; padding: 1rem; border-radius: 0.5rem;'>
+               <div style='background-color: #fff59d; color: #333333;padding-bottom:20px; padding: 1rem; border-radius: 0.5rem;font-size:18px;'>
                🔒 This system does not store your messages. Your text is deleted automatically right after it is analyzed.
                </div>
                """,
