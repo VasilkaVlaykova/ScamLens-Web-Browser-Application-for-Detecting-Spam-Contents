@@ -54,9 +54,10 @@ with tab2:
 # Creating title  and short introduction of the app.
 #st.title('Welcome to ScamLens ',text_alignment='center' )
 st.markdown("""
-<div style='text-ailgn:cener; font-size:20px;'>
+<div style='text-align:center; font-size:20px;'>
 <p><b> A detection platform designed to analyse text messages, emails, and URLs for potential threats. 
-Simply input your data to scan for spam content and receive an instant probability score for the risk level
+Simply input your data to scan for spam content 
+and receive an instant probability score for the risk level.
 </b>
 </p>
 </div>

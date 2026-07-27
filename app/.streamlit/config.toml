@@ -7,10 +7,10 @@ backgroundColor = '#5a8956'
 secondaryBackgroundColor = 'hsl(153, 37%, 12%)'
 
 textColor = '#ffffff'
-primaryColor = 'hsl(205, 66%, 65%)'
-theme.borderColor= 'hsl(115, 90%, 51%)'
+primaryColor = 'rgb(73, 166, 246)'
+theme.borderColor= '#0a1709'
 
 font = "sans serif"
-baseFontSize = 20
+baseFontSize = 16
 
 #0acfcf'

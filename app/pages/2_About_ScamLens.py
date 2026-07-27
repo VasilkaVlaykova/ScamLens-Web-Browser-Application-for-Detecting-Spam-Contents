@@ -13,9 +13,7 @@ st.markdown("""
 
 
 
-tab1, tab2 = st.columns([8,20])
-with tab2:
-    st.image('app/title.png', width=450)
+
 
 st.markdown("""
 <div style='text-align:center; color:white; font-size:50px;'>
@@ -35,63 +33,88 @@ or website link might be a scam. It is designed for everyday users and does not 
 """, unsafe_allow_html=True)
 
 
+with st.container():
+    st.subheader('What You Can Check',text_alignment='center')
+    col1, col2, col3 = st.columns(3, gap="small")
+    with col1:
+        st.markdown("""
+        <div style = 'background-color:#133B28;padding-bottom:5px;font-size:20px;padding: 20px;color: #79E2B3;'>
+        💬 SMS Messages
+        </div>
+        """,unsafe_allow_html=True)
+        
+        st.markdown("""
+        <div style = 'background-color:#133B28;padding: 20px;'>
+        Check suspicious SMS messages, unusual wording, urgency and common scam patterns.
+        </div>
+        """,unsafe_allow_html=True)
+        
 
-st.subheader('What ScamLens Can Detect', text_alignment='center')
-st.markdown("""
-<div style='text-align:left; font-size:20px;background-color:#204635;padding: 24px; border-radius: 12px;'>
-    <ul>
-        <li><span style="color:#F4C542; margin-right:8px;">☎</span> Suspicious or scam text messages</li>
-        <li><span style="color:#F4C542; margin-right:8px;">✉</span> Phishing emails</li>
-        <li><span style="color:#F4C542; margin-right:8px;">⛓</span> Malicious or unsafe website links</li>
-        <li><span style="color:#F4C542; margin-right:8px;">⚠</span> Hidden characters or mixed alphabets inside URLs</li>
-    </ul>
-</div>
-""", unsafe_allow_html=True)
+    with col2:
+        st.markdown("""
+            <div style = 'background-color:#133B28;padding-bottom:5px;font-size:20px;padding: 20px;color: #79E2B3;'>
+             ✉️ Emails
+            </div>
+                """,unsafe_allow_html=True)
+                
+        st.markdown("""
+            <div style = 'background-color:#133B28;padding: 20px;'>
+                Analyse emails that may contain phishing, fraudulent requests or suspicious language.
+            </div>
+            """,unsafe_allow_html=True)
+        
+        
 
+    with col3:
+        st.markdown("""
+            <div style = 'background-color:#133B28;padding-bottom:5px;font-size:20px;padding: 20px;color: #79E2B3;'>
+                🔗 URLs
+            </div>
+        """,unsafe_allow_html=True)
+                        
+        st.markdown("""
+            <div style = 'background-color:#133B28;padding: 20px;'>
+                Check URLs for malicious patterns, misleading domain and unusual or hidden characters.
+            </div>
+            """,unsafe_allow_html=True)
 
-st.subheader("How ScamLens Works",text_alignment='center')
-st.markdown("""
-<div style = 'text-align:center; padding-bottom: 30px;font-size:20px;'>
-ScamLens uses machine learning algorithms to analyse your text or link and estimate
-how likely it is to be a scam. You will receive a clear result, a percentage score, and
-a simple visual chart to help you understand the analysis.
-</div>
-""", unsafe_allow_html=True)
-
-st.warning("""
-⚠️ ScamLens provides an estimated probability score.  
-This score may not always be correct — always double check the original message or link.
-""")
-
-
-st.subheader("Your Privacy Matters",text_alignment='center')
-st.markdown("""
-<div style='text-align:left; padding-bottom: 30px;font-size:20px;background-color:#204635;padding: 24px; border-radius: 12px;'>
-    <ul>
-        <li> <span style="color:#F4C542;margin-right:8px;">✓</span> ScamLens does not store your messages, emails, or links</li>
-        <li> <span style="color:#F4C542;margin-right:8px;">✓</span> No personal data is saved or shared</li>
-        <li> <span style="color:#F4C542;margin-right:8px;">✓</span> No installation or download is required</li>
-        <li> <span style="color:#F4C542;margin-right:8px;">✓</span> ScamLens is completely free to use</li>
-    </ul>
-</div>
-""", unsafe_allow_html=True)
-
-st.subheader("Coming Soon", text_alignment='center')
-st.markdown("""
-<div style='text-align:left; padding-bottom: 30px;font-size:20px;background-color:#204635;padding: 24px; border-radius: 12px;'>
-    <ul>
-        <li><span style="color:#F4C542;">▸</span> Support for more languages</li>
-        <li><span style="color:#F4C542;">▸</span> Improved scam detection accuracy</li>
-        <li><span style="color:#F4C542;">▸</span> More visual tools to help you understand results</li>
-    </ul>
-</div> 
-""", unsafe_allow_html=True)
-
-
-st.subheader("Feedback & Support",text_alignment='center')
-st.markdown("""
-Have suggestions or found an issue?  
-You can share feedback on GitHub:  
-▸ https://github.com/VasilkaVlaykova
-""")
+with st.container():
+    st.subheader('How It Works', text_alignment='center')
+    col1, col2, col3= st.columns(3,gap='small')
+    with col1:
+        st.markdown("""
+        <div style = 'background-color:#133B28;padding-bottom:5px;font-size:20px;padding: 20px;color: #79E2B3;'>
+        <span style="color:#79E2B3; font-size:42px;">①</span>
+        <span style="color:#79E2B3;">➤</span> Choose
+        </div>
+        """, unsafe_allow_html=True)
+        st.markdown("""
+        <div style = 'background-color:#133B28;padding: 20px;'>
+        Select the type of content you want to check: SMS message, email or website link.
+        </div>
+        """,unsafe_allow_html=True)
+    with col2:
+        st.markdown("""
+        <div style = 'background-color:#133B28;padding-bottom:5px;font-size:20px;padding: 20px;color: #79E2B3;'>
+           <span style="color:#79E2B3; font-size:42px;">②</span>
+           <span style="color:#79E2B3;">➤</span> Paste
+        </div>
+         """, unsafe_allow_html=True)
+        st.markdown("""
+        <div style = 'background-color:#133B28;padding: 20px;'>
+            Enter or paste the message, email or website link you want ScamLens to analyse.
+        </div>
+        """,unsafe_allow_html=True)
+    with col3:
+        st.markdown("""
+        <div style = 'background-color:#133B28;padding-bottom:5px;font-size:20px;padding: 20px;color: #79E2B3;'>
+            <span style="color:#79E2B3; font-size:42px;">③</span>
+            <span style="color:#79E2B3;">➤</span> Review
+        </div>
+        """, unsafe_allow_html=True)
+        st.markdown("""
+        <div style = 'background-color:#133B28;padding: 20px;'>
+        See the prediction, probability score and safety guidance before deciding what to do next.
+        </div>
+        """,unsafe_allow_html=True)
 
