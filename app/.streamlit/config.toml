@@ -11,6 +11,6 @@ primaryColor = 'rgb(73, 166, 246)'
 theme.borderColor= '#0a1709'
 
 font = "sans serif"
-baseFontSize = 16
+baseFontSize = 12
 
 #0acfcf'

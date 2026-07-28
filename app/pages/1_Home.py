@@ -30,12 +30,13 @@ st.markdown("""
 
 
 st.markdown("""
+
 <style>
 /* Make the main content wider */
 .block-container {
-    max-width: 1200px;
-    padding-left: 2rem;
-    padding-right: 2rem;
+    #max-width: 1000px;
+    #padding-left: 2rem;
+    #padding-right: 2rem;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -54,7 +55,7 @@ with tab2:
 # Creating title  and short introduction of the app.
 #st.title('Welcome to ScamLens ',text_alignment='center' )
 st.markdown("""
-<div style='text-align:center; font-size:20px;'>
+<div style='text-align:center; font-size:18px;'>
 <p><b> A detection platform designed to analyse text messages, emails, and URLs for potential threats. 
 Simply input your data to scan for spam content 
 and receive an instant probability score for the risk level.
@@ -67,7 +68,7 @@ and receive an instant probability score for the risk level.
 # Using HTML to create a custom warning box to provides to the user.
 st.markdown(
     """
-    <div style='background-color: #fdd835; color: black; padding: 1rem; border-radius: 0.5rem;font-size:18px;'>
+    <div style='background-color: #fdd835; color: black; padding: 1rem; border-radius: 0.5rem;font-size:14px;'>
     ⚠️ Please do not input any sensitive information such as name, address, phone number, or your personal email address. The platform will analyse your content without storing any data.
     </div>
     """,
@@ -159,7 +160,7 @@ with tab1:
                
                st.markdown(
                """
-               <div style='background-color: #fff59d; color: #333333;padding-bottom:20px; padding: 1rem; border-radius: 0.5rem;font-size:18px;'>
+               <div style='background-color: #fff59d; color: #333333;padding-bottom:20px; padding: 1rem; border-radius: 0.5rem;font-size:14px;'>
                🔒 This system does not store your messages. Your text is deleted automatically right after it is analyzed.
                </div>
                """,
