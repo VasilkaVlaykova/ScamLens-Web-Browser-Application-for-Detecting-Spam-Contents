@@ -138,7 +138,7 @@ with st.container():
         </div>
         """,unsafe_allow_html=True)
         st.markdown("""
-        <div style = 'background-color:#133B28;padding: 10px;'>
+        <div style = 'background-color:#133B28;padding: 15px;'>
         Use ScamLens instantly without creating an account or signing in.
         </div>
         """,unsafe_allow_html=True)
@@ -150,8 +150,8 @@ with st.container():
         </div>
         """,unsafe_allow_html=True)
         st.markdown("""
-        <div style = 'background-color:#133B28;padding: 10px;'>
-         Use all ScamLens features for free, with no subscription or hidden charges.
+        <div style = 'background-color:#133B28;padding: 15px;'>
+         Use all ScamLens features for free, with no subscription or charges.
         </div>
         """,unsafe_allow_html=True)
     with col3:
@@ -161,7 +161,7 @@ with st.container():
         </div>
         """,unsafe_allow_html=True)
         st.markdown("""
-        <div style = 'background-color:#133B28;padding: 10px;'>
+        <div style = 'background-color:#133B28;padding: 15px;'>
         Your content is analysed without being stored or shared
         </div>
         """,unsafe_allow_html=True)
@@ -172,7 +172,7 @@ with st.container():
         </div>
         """,unsafe_allow_html=True)
         st.markdown("""
-        <div style = 'background-color:#133B28;padding: 10px;'>
+        <div style = 'background-color:#133B28;padding: 15px;'>
          Receive your ScamLens analysis in seconds.       
         </div>
         """,unsafe_allow_html=True)
