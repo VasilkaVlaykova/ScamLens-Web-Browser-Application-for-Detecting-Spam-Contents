@@ -50,10 +50,10 @@ tab1, tab2 = st.columns([8,20])
 
 
 with tab2:
-     st.image("app/title.png", width=400)
+     st.image("app/title.png", width=350)
 
 # Creating title  and short introduction of the app.
-#st.title('Welcome to ScamLens ',text_alignment='center' )
+
 st.markdown("""
 <div style='text-align:center; font-size:18px;'>
 <p><b> A detection platform designed to analyse text messages, emails, and URLs for potential threats. 

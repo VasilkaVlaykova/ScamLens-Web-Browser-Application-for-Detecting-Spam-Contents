@@ -13,7 +13,7 @@ st.markdown("""
 
 
 
-col1, col2, col3 = st.columns([20,1,15])
+col1, col2, col3 = st.columns([25,1,15])
 with col1:
      st.markdown("""
      <div style='text-align:center; color:white; font-size:40px;padding-bottom:30px;'>
@@ -24,11 +24,11 @@ with col1:
 
 
      st.markdown("""
-     <div style='text-align:center;font-size:20px; color:white;'>
-     <p><b>ScamLens is a simple and free online tool that helps you check whether a message, email,
+     <div style='text-align:center;font-size:18px; color:white;'>
+     <b>ScamLens is a simple and free online tool that helps you check whether a message, email,
      or website link might be a scam. It is designed for everyday users and does not require any installation, subscription, or account.
      </b>
-     </p>
+     
      </div>
      """, unsafe_allow_html=True)
 with col3:
@@ -46,7 +46,7 @@ with st.container():
         """,unsafe_allow_html=True)
         
         st.markdown("""
-        <div style = 'background-color:#133B28;padding: 20px;'>
+        <div style = 'background-color:#133B28;padding: 20px;margin-bottom:18px;'>
         Check suspicious SMS messages, unusual wording, urgency and common scam patterns.
         </div>
         """,unsafe_allow_html=True)
@@ -60,7 +60,7 @@ with st.container():
                 """,unsafe_allow_html=True)
                 
         st.markdown("""
-            <div style = 'background-color:#133B28;padding: 20px;'>
+            <div style = 'background-color:#133B28;padding: 20px;margin-bottom:18px;'>
                 Analyse emails that may contain phishing, fraudulent requests or suspicious language.
             </div>
             """,unsafe_allow_html=True)
@@ -75,7 +75,7 @@ with st.container():
         """,unsafe_allow_html=True)
                         
         st.markdown("""
-            <div style = 'background-color:#133B28;padding: 20px;'>
+            <div style = 'background-color:#133B28;padding: 20px;margin-bottom:18px;'>
                 Check URLs for malicious patterns, misleading domain and unusual or hidden characters.
             </div>
             """,unsafe_allow_html=True)
@@ -122,13 +122,13 @@ with st.container():
 
 
 st.markdown("""
-    <div style='background-color: #fdd835; color: black; padding: 1rem; border-radius: 0.5rem;font-size:14px; margin-top: 18px;'>
+    <div style='background-color: #fdd835; color: black; padding: 1rem; border-radius: 0.5rem;font-size:14px; margin-top: 18px;margin-bottom:18px;'>
     ⚠️ Please do not input any sensitive information such as name, address, phone number, or your personal email address. The platform will analyse your content without storing any data.
     </div>
       """,unsafe_allow_html=True)
 
 with st.container():
-    st.subheader('Why Use ScamLens >', text_alignment='center')
+    st.subheader('Why Use ScamLens ', text_alignment='center')
     col1, col2, col3, col4= st.columns(4,gap='small')
 
     with col1:
@@ -179,7 +179,7 @@ with st.container():
 
 
 st.markdown("""
-    <div style='background-color: #fdd835; color: black; padding: 1rem; border-radius: 0.5rem;font-size:14px; margin-top: 18px;'>
+    <div style='background-color: #fdd835; color: black; padding: 1rem; border-radius: 0.5rem;font-size:14px; margin-top: 18px;margin-bottom:18px;'>
     ⚠️ ScamLens can make mistakes. Always double-check the result before clicking a link, replying, or sharing personal information.
     </div>
     """,unsafe_allow_html=True)
