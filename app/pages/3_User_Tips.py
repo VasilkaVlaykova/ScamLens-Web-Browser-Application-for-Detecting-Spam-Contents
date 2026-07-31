@@ -26,7 +26,9 @@ st.markdown("""
      """,
     unsafe_allow_html=True)
 
-
+st.markdown("""
+<div style = 'color: #5a8956;margin-top:30px;'></div>
+     """,unsafe_allow_html=True)
 with st.container(border=True):
     st.subheader('How to Spot a Suspicious Text Message', text_alignment='center')
     col1, col2 = st.columns([10,15])
@@ -90,12 +92,14 @@ with st.container(border=True):
         
 
 
-
+st.markdown("""
+<div style = 'color: #5a8956;margin-top:30px;'></div>
+     """,unsafe_allow_html=True)
 
 
 with st.container(border=True):
     st.subheader('How to Recognise a Scam Email', text_alignment='center')
-    col1, col2 = st.columns([12,10],gap='large')
+    col1, col2 = st.columns([8,8],gap='small')
     with col1:
         st.image('app/email2.png', width=700)
         st.markdown("""
@@ -112,7 +116,7 @@ with st.container(border=True):
         """,unsafe_allow_html=True)
     with col2:
         st.markdown("""
-        <div style = 'padding-bottom:5px;font-size:14px;color: #79E2B3;'>
+        <div style = 'padding-bottom:5px;font-size:14px;color: #79E2B3;margin-top:30px;'>
         Suspicious sender address
         </div>
         """,unsafe_allow_html=True)
@@ -124,12 +128,12 @@ with st.container(border=True):
         """,unsafe_allow_html=True)
 
         st.markdown("""
-        <div style = 'padding-bottom:5px;font-size:14px;color: #79E2B3;margin-top:19px;'>
+        <div style = 'padding-bottom:5px;font-size:14px;color: #79E2B3;margin-top:30px;'>
          Urgent or threatening language
         </div>
         """,unsafe_allow_html=True)
         st.markdown("""
-        <div style = 'background-color:#133B28;padding: 20px;  border: 1px solid #79E2B3;margin-bottom:20px;'>
+        <div style = 'background-color:#133B28;padding: 20px;  border: 1px solid #79E2B3;margin-bottom:30px;'>
            <ul>
                <li>Your account will be suspended.</li>
                <li>You must pay a penalty within 24 hours.</li>
@@ -142,7 +146,7 @@ with st.container(border=True):
         """,unsafe_allow_html=True)
 
         st.markdown("""
-        <div style = 'padding-bottom:5px;font-size:14px;color: #79E2B3;margin-top:19px;'>
+        <div style = 'padding-bottom:5px;font-size:14px;color: #79E2B3;margin-top:30px;'>
         Unexpected rewards or offers
         </div>
         """,unsafe_allow_html=True)
@@ -155,12 +159,14 @@ with st.container(border=True):
 
         
         
-        
+st.markdown("""
+<div style = 'color: #5a8956;margin-top:30px;'></div>
+     """,unsafe_allow_html=True)        
 
 
 with st.container(border=True):
     st.subheader('How to Recognise a Suspicious Website Link',text_alignment='center')
-    col1, col2 = st.columns([12,10])
+    col1, col2 = st.columns([8,8])
     with col1:
         st.image('app/url2.png', width=600)
         st.markdown("""
@@ -169,7 +175,7 @@ with st.container(border=True):
         </div>
         """,unsafe_allow_html=True)
         st.markdown("""
-        <div style = 'background-color:#133B28;padding: 20px;  border: 1px solid #79E2B3;'>
+        <div style = 'background-color:#133B28;padding: 20px;  border: 1px solid #79E2B3;margin-bottom:50px;'>
         A link may contain invisible characters placed between parts of a familiar name. 
         The address can appear normal even though an extra hidden character is present.
         <br><br>
@@ -184,7 +190,7 @@ with st.container(border=True):
 
     with col2:
         st.markdown("""
-        <div style = 'padding-bottom:5px;font-size:14px;color: #79E2B3;'>
+        <div style = 'padding-bottom:5px;font-size:14px;color: #79E2B3;margin-top:35px;'>
          Numbers replacing letters
         </div>
         """,unsafe_allow_html=True)
@@ -217,7 +223,7 @@ with st.container(border=True):
         </div>
         """,unsafe_allow_html=True)
         st.markdown("""
-        <div style = 'background-color:#133B28;padding: 20px;  border: 1px solid #79E2B3;'>
+        <div style = 'background-color:#133B28;padding: 20px;  border: 1px solid #79E2B3;padding-bottom:47px;'>
         Some links use letters from another alphabet that look almost identical to English letters. For example,
         <mark> <b>Cyrillic о</b> </mark>may be used instead of the<mark> <b>English o<b> </amrk>.
         <br><br>
@@ -227,7 +233,7 @@ with st.container(border=True):
 
 
 st.markdown("""
-           <div style='background-color: #fdd835; color: black; padding: 1rem; border-radius: 0.5rem;font-size:14px;margin-top:10px;'>
+           <div style='background-color: #fdd835; color: black; padding: 1rem; border-radius: 0.5rem;font-size:14px;margin-top:18px;margin-bottom:30px;'>
            ⚠️ <b>Do not panic or act immediately.</b> Pause and check the sender, website domain and urgent wording carefully. Do not click links or share personal information. Verify the message through the organisation’s official website or trusted phone number,
              and ask someone you trust for a second opinion when you are unsure.
            </div>
