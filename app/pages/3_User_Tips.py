@@ -168,7 +168,7 @@ with st.container(border=True):
     st.subheader('How to Recognise a Suspicious Website Link',text_alignment='center')
     col1, col2 = st.columns([8,8])
     with col1:
-        st.image('app/url2.png', width=600)
+        st.image('app/URLs2.png', width=650)
         st.markdown("""
         <div style = 'padding-bottom:5px;font-size:14px;color: #79E2B3;'>
          Hidden zero-width characters

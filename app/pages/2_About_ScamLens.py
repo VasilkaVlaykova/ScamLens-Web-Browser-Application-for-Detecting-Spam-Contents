@@ -123,7 +123,9 @@ with st.container():
 
 st.markdown("""
     <div style='background-color: #fdd835; color: black; padding: 1rem; border-radius: 0.5rem;font-size:14px; margin-top: 18px;margin-bottom:18px;'>
-    ⚠️ Please do not input any sensitive information such as name, address, phone number, or your personal email address. The platform will analyse your content without storing any data.
+    ⚠️ Please do not input any sensitive information such as name, address, 
+    phone number, or your personal email address. 
+    The platform will analyse your content without storing any data.
     </div>
       """,unsafe_allow_html=True)
 
@@ -162,7 +164,7 @@ with st.container():
         """,unsafe_allow_html=True)
         st.markdown("""
         <div style = 'background-color:#133B28;padding: 15px;'>
-        Your content is analysed without being stored or shared
+        Your content is analysed without being stored or shared.
         </div>
         """,unsafe_allow_html=True)
     with col4:
@@ -180,7 +182,8 @@ with st.container():
 
 st.markdown("""
     <div style='background-color: #fdd835; color: black; padding: 1rem; border-radius: 0.5rem;font-size:14px; margin-top: 18px;margin-bottom:18px;'>
-    ⚠️ ScamLens can make mistakes. Always double-check the result before clicking a link, replying, or sharing personal information.
+    ⚠️ ScamLens can make mistakes. Always double-check the result before clicking a link, 
+        replying, or sharing personal information.
     </div>
     """,unsafe_allow_html=True)
 
