@@ -12,7 +12,8 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-
+# Using Streamlit columns to create the interace of About page.
+# Applying Markdown and using HTML to stylish the boxes.
 col1, col2, col3 = st.columns([25,1,15])
 with col1:
      st.markdown("""

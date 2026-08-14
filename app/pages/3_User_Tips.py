@@ -25,7 +25,7 @@ st.markdown("""
     </div>
      """,
     unsafe_allow_html=True)
-
+# Using Streamlit container with columns to create Tips page as well as Markdown with HTML to style the background colours,  padding and font size of the boxes.
 st.markdown("""
 <div style = 'color: #5a8956;margin-top:30px;'></div>
      """,unsafe_allow_html=True)

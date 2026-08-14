@@ -1,5 +1,5 @@
 
-
+# Main config page which apply background colours and font zise for entire app globaly.
 [theme]
 backgroundColor = '#5a8956'
 
@@ -13,4 +13,3 @@ theme.borderColor= '#0a1709'
 font = "sans serif"
 baseFontSize = 12
 
-#0acfcf'

@@ -9,14 +9,6 @@ import unicodedata
 
 
 
-# Using markdown and CSS to hide the deploy menu of the interface.
-st.markdown("""
-<style>
-[data-testid="stToolbar"] {
-    visibility: hidden;
-}
-</style>
-""", unsafe_allow_html=True)
 
 # Removing all header and footer space from the page.
 st.markdown("""

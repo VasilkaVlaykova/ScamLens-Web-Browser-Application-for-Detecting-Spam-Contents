@@ -11,7 +11,7 @@ st.markdown("""
 }
 </style>
 """, unsafe_allow_html=True)
-
+# Using Markdoen to create boxes to apply the HTML styling and links to user to able to cklick on them.
 st.markdown("""
    <div style='text-align:center; color:white; font-size:40px;padding-bottom:30px;'>
    <b>Useful Links</b>
