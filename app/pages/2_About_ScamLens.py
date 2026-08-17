@@ -10,8 +10,6 @@ st.markdown("""
 }
 </style>
 """, unsafe_allow_html=True)
-
-
 # Using Streamlit columns to create the interace of About page.
 # Applying Markdown and using HTML to stylish the boxes.
 col1, col2, col3 = st.columns([25,1,15])
@@ -22,14 +20,11 @@ with col1:
      </div>
      """,unsafe_allow_html=True)
 
-
-
      st.markdown("""
      <div style='text-align:center;font-size:18px; color:white;'>
      <b>ScamLens is a simple and free online tool that helps you check whether a message, email,
      or website link might be a scam. It is designed for everyday users and does not require any installation, subscription, or account.
      </b>
-     
      </div>
      """, unsafe_allow_html=True)
 with col3:

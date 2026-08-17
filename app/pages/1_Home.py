@@ -7,9 +7,6 @@ import re
 import unicodedata
 
 
-
-
-
 # Removing all header and footer space from the page.
 st.markdown("""
 <style>
@@ -269,7 +266,7 @@ with tab2:
                          st.info(' The link does not have any hidden numbers')
             else:
                 st.info("No URLs found in this Email.")
-                if sms_prediction == 1:
+                if email_prediction == 1:
                     st.warning(
                        "⚠️ This Email appears to be **spam** and may contain **hidden malicious links** "
                        "behind buttons or words. Do **NOT** click anywhere in the original email."
