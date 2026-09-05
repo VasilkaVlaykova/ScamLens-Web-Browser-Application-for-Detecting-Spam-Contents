@@ -51,4 +51,4 @@ These requirements guided the design and development of the ScamLens interface a
 
 ---
 
-[← Back to the main README](../README.md) |  [Next: Prototype Design →](03_System_Design_and_Architecture.md)
+[← Back to the main README](../README.md) |  [Next: System Design and Architecture →](03_System_Design_and_Architecture.md)

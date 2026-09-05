@@ -54,4 +54,4 @@ The following tools supported the creation and management of ScamLens:
 The remaining documentation presents the functional and non-functional requirements, system design and architecture, and prototype design. These sections explain how the research findings were transformed into the final structure, features and visual interface of ScamLens.
 
 
-[← Back to the main README](../README.md) | [Next: Prototype Design →](02_Functional_and_Non_Functional_Requirements.md)
+[← Back to the main README](../README.md) | [Next: Functional and Non-functional Requirements →](02_Functional_and_Non_Functional_Requirements.md)
