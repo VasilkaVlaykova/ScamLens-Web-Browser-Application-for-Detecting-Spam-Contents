@@ -108,7 +108,7 @@ def predict_and_display(pipeline, text, spam_label='Spam', ham_label='Legitimate
 st.markdown("""
 <style>
     button[data-baseweb="tab"] p {
-        font-size: 18px !important;
+    font-size: 18px !important;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -222,7 +222,7 @@ with tab2:
         if email_text.strip()=="":
             st.markdown(
             """
-            <div style='background-color: #fff59d; color: #333333; padding: 1rem; border-radius: 0.5rem;'>
+            <div style='background-color: #fff59d; color: #333333; padding: 1rem; border-radius: 0.5rem;font-size:14px;'>
             🔒 This system does not store your email. Your text is deleted automatically right after it is analyzed.
             </div>
             """,
@@ -282,7 +282,7 @@ with tab3:
         if url_text.strip()=="":
             st.markdown(
             """
-            <div style='background-color: #fff59d; color: #333333; padding: 1rem; border-radius: 0.5rem;'>
+            <div style='background-color: #fff59d; color: #333333; padding: 1rem; border-radius: 0.5rem;font-size:14px;'>
             🔒 This system does not store your URL link. Your text is deleted automatically right after it is analyzed.
             </div>
             """,
