@@ -1,6 +1,8 @@
-# ScamLens-Web-Browser-Application-for-Detecting-Spam-Contents
-Streamlit web browser app for detecting spam SMS, phishing emails, and malicious URLs.
-# ScamLens
+
+# ScamLens:
+## A Unified Machine Learning Web-platform  for Detecting Spam SMS, Emails, and Malicious URLs
+
+
 
 ScamLens is a web-based machine learning prototype designed to help detect suspicious SMS messages, phishing emails, and malicious URLs. The project explores the use of machine learning and NLP techniques to classify spam content, assess potential risks, and provide users with safety guidance before interacting with suspicious content.
 
