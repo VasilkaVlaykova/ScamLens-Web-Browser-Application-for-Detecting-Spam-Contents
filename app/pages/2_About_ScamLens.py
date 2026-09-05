@@ -2,7 +2,7 @@ import streamlit as st
 
 st.markdown("""
 <style>
-/* Make the main content wider */
+
 .block-container {
     max-width: 1000px;
     padding-left: 1rem;

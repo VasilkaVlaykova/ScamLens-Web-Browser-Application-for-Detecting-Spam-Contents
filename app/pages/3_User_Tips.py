@@ -2,7 +2,7 @@ import streamlit as st
 
 st.markdown("""
 <style>
-/* Make the main content wider */
+
 .block-container {
     max-width: 1000px;
     padding-left: 1rem;
@@ -33,7 +33,7 @@ with st.container(border=True):
     st.subheader('How to Spot a Suspicious Text Message', text_alignment='center')
     col1, col2 = st.columns([10,15])
     with col1:
-        st.image('app/phone2.png', width=350)
+        st.image('app/phone3.png', width=350)
     with col2:
         st.markdown("""
         <div style = 'padding-bottom:5px;font-size:14px;color: #79E2B3;'>
@@ -99,9 +99,9 @@ st.markdown("""
 
 with st.container(border=True):
     st.subheader('How to Recognise a Scam Email', text_alignment='center')
-    col1, col2 = st.columns([8,8],gap='small')
+    col1, col2 = st.columns([9,8],gap='small')
     with col1:
-        st.image('app/email2.png', width=700)
+        st.image('app/email3.png', width=750)
         st.markdown("""
         <div style = 'padding-bottom:5px;font-size:14px;color: #79E2B3;'>
         Hidden or misleading links
@@ -146,7 +146,7 @@ with st.container(border=True):
         """,unsafe_allow_html=True)
 
         st.markdown("""
-        <div style = 'padding-bottom:5px;font-size:14px;color: #79E2B3;margin-top:30px;'>
+        <div style = 'padding-bottom:5px;font-size:14px;color: #79E2B3;margin-top:65px;'>
         Unexpected rewards or offers
         </div>
         """,unsafe_allow_html=True)
@@ -166,9 +166,9 @@ st.markdown("""
 
 with st.container(border=True):
     st.subheader('How to Recognise a Suspicious Website Link',text_alignment='center')
-    col1, col2 = st.columns([8,8])
+    col1, col2 = st.columns([9,8])
     with col1:
-        st.image('app/URLs2.png', width=650)
+        st.image('app/url2.png', width=750)
         st.markdown("""
         <div style = 'padding-bottom:5px;font-size:14px;color: #79E2B3;'>
          Hidden zero-width characters
@@ -197,7 +197,7 @@ with st.container(border=True):
         st.markdown("""
         <div style = 'background-color:#133B28;padding: 20px;  border: 1px solid #79E2B3;'>
         Scammers may replace letters with similar-looking numbers to imitate a trusted website name. For example, 
-        the<mark> <b>number 1</b> </mark>may replace the<mark> <b>letter l</b> </mark>, or<mark> <b>0</b> </mark>may replace the letter<mark> <b>o</b> </mark>.
+        the<mark> <b>[number 1]</b> </mark>may replace the<mark> <b>[letter l]</b> </mark>, or<mark> <b>[0]</b> </mark>may replace the letter<mark> <b>[o]</b> </mark>.
         <br><br> 
         <mark> <b>Example:</b> https://paypa1-secure-login.example </mark>
         </div>
@@ -210,7 +210,7 @@ with st.container(border=True):
         """,unsafe_allow_html=True)
         st.markdown("""
         <div style = 'background-color:#133B28;padding: 20px;  border: 1px solid #79E2B3;margin-bottom:80px;'>
-        Suspicious links may contain encoded characters such as<mark> <b>%40</b> </mark>, extra symbols or unusual punctuation.
+        Suspicious links may contain encoded characters such as<mark> <b>[%40]</b> </mark>, extra symbols or unusual punctuation.
           These can make the address difficult to read and may hide the real destination.
           <br><br>
           <mark> <b>Example:</b> https://bank-security.example/&40account-confirmation </mark>
@@ -225,7 +225,7 @@ with st.container(border=True):
         st.markdown("""
         <div style = 'background-color:#133B28;padding: 20px;  border: 1px solid #79E2B3;padding-bottom:47px;'>
         Some links use letters from another alphabet that look almost identical to English letters. For example,
-        <mark> <b>Cyrillic о</b> </mark>may be used instead of the<mark> <b>English o<b> </amrk>.
+        <mark> <b>Cyrillic [о]</b> </mark>may be used instead of the<mark> <b>English [o]<b> </amrk>.
         <br><br>
         <b>Example:</b> https://gооgle-security-check.example/login
         </div>

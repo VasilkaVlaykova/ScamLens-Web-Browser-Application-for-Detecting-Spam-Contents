@@ -1,5 +1,19 @@
 import streamlit as st
 
+# Using CSS to increase the font aize of side menu and icona
+st.markdown("""
+<style>
+
+section[data-testid="stSidebar"] .st-emotion-cache-1v0mbdj {
+    font-size: 20px !important;
+}
+
+
+section[data-testid="stSidebar"] * {
+    font-size: 18px !important;
+}
+</style>
+""", unsafe_allow_html=True)
 
 
 st.logo("app/logo2.png", size="large")

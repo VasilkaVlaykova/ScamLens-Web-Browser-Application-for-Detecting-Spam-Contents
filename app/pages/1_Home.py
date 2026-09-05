@@ -21,7 +21,7 @@ st.markdown("""
 st.markdown("""
 
 <style>
-/* Make the main content wider */
+
 .block-container {
     #max-width: 1000px;
     #padding-left: 2rem;
