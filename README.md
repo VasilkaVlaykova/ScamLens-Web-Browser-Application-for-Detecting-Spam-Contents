@@ -1,6 +1,6 @@
 # ScamLens-Web-Browser-Application-for-Detecting-Spam-Contents
-ScamLens
-A Unified Machine Learning Web-platform  for Detecting Spam SMS, Emails, and Malicious URLs
+## ScamLens:
+## A Unified Machine Learning Web-platform  for Detecting Spam SMS, Emails, and Malicious URLs
 
 # ScamLens
 
