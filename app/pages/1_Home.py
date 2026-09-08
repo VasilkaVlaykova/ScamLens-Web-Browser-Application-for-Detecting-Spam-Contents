@@ -192,15 +192,16 @@ with tab1:
                                  # displaying as well the name of the found letters.
                                  name = unicodedata.name(i)          
                                  script = name.split()[0].capitalize() 
-                                 st.write(f"{i} → {hex(ord(i))}→ {script} alphabet")        
+                                 st.write(f"{i} → {hex(ord(i))}→ {script} alphabet")
                      else:
                               st.info('The link does not have any hidden mixed alphabets letter')
+                       
                      if zero: # Diplaying the zero-width to the user with a warning message.
                               st.warning('⚠️ Hidden zero-width characters found:')
                               for j in zero:
                                 st.write(f"- `{j}` → `{hex(ord(j))}`")
                      else:  # If the link does not have any hidden numbers will display a message to the user.
-                            st.info(' The link does not have any hidden numbers')
+                            st.info(' The link does not have any hidden numbers or characters')
                
                # If the text is classified as Spam the ELSE condition will provide a warning ,essage to the user
                # about that probably the text contains a hiddin link and do not click anywhere inside.
@@ -263,7 +264,7 @@ with tab2:
                         for j in zero:
                             st.write(f"- `{j}` → `{hex(ord(j))}`")
                     else:
-                         st.info(' The link does not have any hidden numbers')
+                         st.info(' The link does not have any hidden numbers or characters')
             else:
                 st.info("No URLs found in this Email.")
                 if email_prediction == 1:
@@ -316,7 +317,7 @@ with tab3:
                     for j in zero:
                         st.write(f"- `{j}` → `{hex(ord(j))}`")
                  else:
-                    st.info(' The link does not have any hidden numbers')
+                    st.info(' The link does not have any hidden numbers or characters')
             else:
                 st.info("No URLs found in this Email.")
                 if sms_prediction == 1:
