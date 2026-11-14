@@ -16,6 +16,10 @@ The project includes:
 
 ScamLens is being developed as both a research and practical cybersecurity project, combining machine learning experimentation with an accessible web application concept.
 
+## 🔗 Live Demo
+
+Try ScamLens here: [https://scamlens-web-browser-application-for-detecting-spam-contents-e.streamlit.app](https://scamlens-web-browser-application-for-detecting-spam-contents-e.streamlit.app)
+
 
 
 ## 📚 Project Documentation
